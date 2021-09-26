@@ -3,27 +3,52 @@ package com.example.explicacionespmdm;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 /**
- * PROYECTO BASE
+ * Actividad 1 Interfaz: Button
  * @author JC
  * @version 0.1
  *
- *  La idea del proyecto es concentrar en uno solo todas las tareas explicativas
- *  del módulo de 2º de DAM, Programación Multimedia y dispositivos móviles,
- *  haciendo uso de ramas a través de git.
- *
- *  Cada rama será un proyecto de un apartado explicativo independiente.
- *
- *  Esta rama SE DEBE DEJAR SIN IMPLEMENTAR para tenerla como base para comenzar ramas de futuras
- *  explicaciones.
+ *  En esta rama se explicará los conceptos:
+ *  1- Declaración e Inicialización de objetos TextView y Button
+ *  2- Clases anónimas y uso de interfaces
+ *  3- Conexión entre actividad y layout
+ *  4- Ciclo de vida de las actividades
  *
  */
 public class MainActivity extends AppCompatActivity {
 
+
+    //Todo 3: Declaración de objetos
+    private Button btn;
+    private TextView txtVw;
+
+    //Todo 1: OnCreate como primera función para inicializar elementos de la actividad
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Todo 3: Metodo para conectar la vista con la actividad.
         setContentView(R.layout.activity_main);
+
+
+        //Todo 4: Inicialización de variables
+        btn = (Button) findViewById(R.id.button);
+        txtVw = (TextView) findViewById(R.id.textView);
+
+        //Todo 5. Los botones tienen un listener según el tipo de toque sobre la vista.
+        //Todo -> para ello se usa una clase anonima y se implementa su interfaz.
+        //Todo -> Desde Java 8 se sustituyen las clases anonimas por lambdas
+        btn.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+
+                txtVw.setText("Hola mundo");
+                return false;
+            }
+        });
+
     }
 }
