@@ -3,27 +3,34 @@ package com.example.explicacionespmdm;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.Spinner;
 
 /**
- * PROYECTO BASE
+ * Actividad 2. Interfaz_Diseño_Spinner
  * @author JC
  * @version 0.1
  *
- *  La idea del proyecto es concentrar en uno solo todas las tareas explicativas
- *  del módulo de 2º de DAM, Programación Multimedia y dispositivos móviles,
- *  haciendo uso de ramas a través de git.
+ * En esta actividad se mostrará:
  *
- *  Cada rama será un proyecto de un apartado explicativo independiente.
- *
- *  Esta rama SE DEBE DEJAR SIN IMPLEMENTAR para tenerla como base para comenzar ramas de futuras
- *  explicaciones.
+ * 1- Elemento de diseño de contenido múltiple: Spinner
+ * 2- El uso de adaptadores y su relación teórica (Lista - Adaptador - Vista)
+ * 3- El uso de control de selección (Eventos)
+ * 4- Diseño XML de los elementos desplegables.
  *
  */
 public class MainActivity extends AppCompatActivity {
+
+    //Declaración de los elementos de la interfaz
+    Spinner spinner;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Inicialización de los elementos de la interfaz.
+        spinner = (Spinner) findViewById(R.id.spinner);
+        
     }
 }
