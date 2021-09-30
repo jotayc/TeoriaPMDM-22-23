@@ -31,6 +31,6 @@ public class MainActivity extends AppCompatActivity {
 
         //Inicialización de los elementos de la interfaz.
         spinner = (Spinner) findViewById(R.id.spinner);
-        
+
     }
 }
