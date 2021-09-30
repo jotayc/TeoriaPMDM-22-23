@@ -3,27 +3,42 @@ package com.example.explicacionespmdm;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.service.autofill.TextValueSanitizer;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 /**
- * PROYECTO BASE
+ * Actividad Movimiento entre actividades y comunicación.
  * @author JC
  * @version 0.1
  *
- *  La idea del proyecto es concentrar en uno solo todas las tareas explicativas
- *  del módulo de 2º de DAM, Programación Multimedia y dispositivos móviles,
- *  haciendo uso de ramas a través de git.
- *
- *  Cada rama será un proyecto de un apartado explicativo independiente.
- *
- *  Esta rama SE DEBE DEJAR SIN IMPLEMENTAR para tenerla como base para comenzar ramas de futuras
- *  explicaciones.
+ * En esta actividad se explica:
+ * 1. Intents explicitos
+ * 2. Lanzar una nueva actividad
+ * 3. Comunicación entre actividades.
  *
  */
 public class MainActivity extends AppCompatActivity {
+
+    TextView txtVwMain;
+    Button   btn_main;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        txtVwMain = (TextView) findViewById(R.id.txtVw_main);
+        btn_main  = (Button) findViewById(R.id.btn_main);
+
+        btn_main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+
     }
 }
