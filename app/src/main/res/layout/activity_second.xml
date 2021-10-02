@@ -7,12 +7,14 @@
     tools:context=".SecondActivity">
 
     <TextView
-        android:id="@+id/txtVw_scnd"
+        android:id="@+id/txtVw_scnd_tit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="79dp"
-        android:text="Información de main activity "
+        android:layout_marginTop="36dp"
+        android:text="SECOND ACTIVITY"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
