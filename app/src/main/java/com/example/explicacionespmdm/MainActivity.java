@@ -10,14 +10,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 /**
- * Actividad Movimiento entre actividades y comunicación.
+ * Actividad Modificación de comunicación entre actividades B hacia A
  * @author JC
  * @version 0.1
  *
  * En esta actividad se explica:
- * 1. Intents explicitos
- * 2. Lanzar una nueva actividad
- * 3. Comunicación entre actividades.
+ * 1. Comunicación entre actividades B hacia A
  *
  */
 public class MainActivity extends AppCompatActivity {
