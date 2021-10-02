@@ -48,9 +48,13 @@ public class MainActivity extends AppCompatActivity {
         btn_alert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                //Todo 2.4 Solo debemos crear un objeto AlertDialog y llamar al método que lo crea.
+                //Todo -> Posteriormente lo mostramos.
+                AlertDialog alertDialog = createAlertDialog("Mi titulo", "Esto es un mensaje de alerta");
+                alertDialog.show();
             }
         });
+
 
 
     }
@@ -67,15 +71,23 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(MainActivity.this, msg, Toast.LENGTH_LONG).show();
     }
 
-    public AlertDialog createAlertBuilder(String titulo, String mensaje){
-        // 1. Instantiate an <code><a href="/reference/android/app/AlertDialog.Builder.html">AlertDialog.Builder</a></code> with its constructor
+    /**
+     * Esto es un método que encapsula la creación de cuadros de dialogos simples
+     * @param titulo Contiene el título del cuadro de dialogo
+     * @param mensaje Contiene el mensaje dentro del cuadro de dialogo
+     * @return Devuelve el objeto AlertDialog
+     */
+    public AlertDialog createAlertDialog(String titulo, String mensaje){
+        // Todo 2.1 Creamos un 'builder' o constructor que nos ayude a configurar el cuadro de dialogo
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
-        // 2. Chain together various setter methods to set the dialog characteristics
+        // Todo 2.2 Este objeto builder nos permitirá añadir todas las configuraciones que se necesiten
+        // Todo -> antes de crear el alert. En este ejemplo se añade el mensaje y el titulo del alert
         builder.setMessage(mensaje)
                 .setTitle(titulo);
 
-        // 3. Get the <code><a href="/reference/android/app/AlertDialog.html">AlertDialog</a></code> from <code><a href="/reference/android/app/AlertDialog.Builder.html#create()">create()</a></code>
+        // Todo 2.3 Una vez hemos añadido todas las configuraciones creamos el alertDialog. En este
+        // Todo -> caso, devolvemos el objeto creado.
         return builder.create();
     }
 
