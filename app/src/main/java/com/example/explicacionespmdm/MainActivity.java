@@ -3,7 +3,11 @@ package com.example.explicacionespmdm;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 /**
  * Actividad 2. Interfaz_Diseño_Spinner
@@ -32,5 +36,29 @@ public class MainActivity extends AppCompatActivity {
         //Inicialización de los elementos de la interfaz.
         spinner = (Spinner) findViewById(R.id.spinner);
 
+        ArrayAdapter adaptador = ArrayAdapter.createFromResource(this,R.array.provincias, android.R.layout.simple_spinner_item);
+
+        adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(adaptador);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String provincia = (String) adapterView.getItemAtPosition(i);
+                myToast(provincia);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                myToast("Nada seleccinado");
+            }
+        });
+
+
+    }
+
+    public void myToast(String msg){
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
     }
 }
