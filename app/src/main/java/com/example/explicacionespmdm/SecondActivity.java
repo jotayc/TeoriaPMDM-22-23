@@ -14,7 +14,7 @@ public class SecondActivity extends AppCompatActivity {
 
 
 
-    TextView txtVwSec;
+
     Button btnSec;
     EditText editText;
 
@@ -23,12 +23,9 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-
-        txtVwSec    = (TextView) findViewById(R.id.txtVw_scnd_tit);
+        
         btnSec      = (Button) findViewById(R.id.btn_fin_scnd);
         editText    = (EditText) findViewById(R.id.edTxt_scnd);
-
-
 
 
         btnSec.setOnClickListener(new View.OnClickListener() {
