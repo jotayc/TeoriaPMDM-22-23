@@ -24,7 +24,6 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
 
-
     Button btn_toast;
     Button btn_alert;
 
@@ -54,8 +53,6 @@ public class MainActivity extends AppCompatActivity {
                 alertDialog.show();
             }
         });
-
-
 
     }
 
