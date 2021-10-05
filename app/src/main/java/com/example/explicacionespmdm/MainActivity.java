@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 /**
- * Actividad 1 Interfaz: Button
+ * Actividad Interfaz: Button
  * @author JC
  * @version 0.1
  *
