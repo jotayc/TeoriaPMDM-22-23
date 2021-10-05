@@ -18,7 +18,7 @@ import org.w3c.dom.Text;
  * @version 0.1
  *
  * En esta actividad se explica:
- * 1. Comunicación entre actividades B hacia A
+ * 1. Comunicación con datos entre actividades B hacia A
  *
  */
 public class MainActivity extends AppCompatActivity {
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this,SecondActivity.class);
 
-                //Todo 1. Llamamos la variante del método que lanza la actividad que indica que esta
+                //Todo 1. Llamamos a la variante del método que lanza la actividad que indica que esta
                 //Todo -> esta esperará un resultado.
 
                 // Todo 1.1 El segundo parametro "Request Code" se encargará de identificar de qué actividad

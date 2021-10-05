@@ -13,8 +13,6 @@ import android.widget.TextView;
 public class SecondActivity extends AppCompatActivity {
 
 
-
-
     Button btnSec;
     EditText editText;
 
@@ -23,7 +21,7 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        
+
         btnSec      = (Button) findViewById(R.id.btn_fin_scnd);
         editText    = (EditText) findViewById(R.id.edTxt_scnd);
 
