@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 /**
  * Actividad: Notificaciones_Toast_Alerts_Logs
  * @author JC
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button btn_toast;
     Button btn_alert;
+    Button btn_snack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         btn_toast = (Button)   findViewById(R.id.btn_toast);
         btn_alert = (Button)   findViewById(R.id.btn_alert);
+        btn_snack = (Button)   findViewById(R.id.btn_snack);
 
 
         btn_toast.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +58,15 @@ public class MainActivity extends AppCompatActivity {
                 alertDialog.show();
             }
         });
+
+        btn_snack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               //Todo 3. Creamos el snackbar
+                Snackbar.make(view,"Esto es un mensaje snackbar",Snackbar.LENGTH_LONG).show();
+            }
+        });
+
 
     }
 
