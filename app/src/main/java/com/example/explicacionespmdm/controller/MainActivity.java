@@ -67,8 +67,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(new Pelicula("Aquaman","Una vez se cansó de ser el mejor en juego de tronos, cogió un tridente y de fue a nadar con los peces",R.drawable.aqua));
         list.add(new Pelicula("Batman vs Superman","Un hombre disfrazado de murciélago se pelea con un hombre con la ropa interior roja por fuera",R.drawable.batvssup));
         list.add(new Pelicula("Justice League","Un hombre disfrazado, el de juego de tronos, un robot, una mujer con una cuerda y el hombre de la ropa interior se pelean con un bicho",R.drawable.justleague));
-        list.add(new Pelicula("Superman: Hijo rojo","¿Y si la ropa interior la hubiera comprado en Rusia?",
-                );
+        list.add(new Pelicula("Superman: Hijo rojo","¿Y si la ropa interior la hubiera comprado en Rusia?",R.drawable.supred));
         list.add(new Pelicula("Wonder Woman","Una mujer superfuerte con un lazo, no quiere que nadie sepa que es superfuerte y que tiene un lazo",R.drawable.wonwom));
         list.add(new Pelicula("Thor","Un hombre rubio superfuerte se pelea con su hermano y se encuentra con una de las gemas del...oh wait!! que alguien despida al becario!!",R.drawable.infiltrado));
 
