@@ -1,87 +1,88 @@
 package com.example.explicacionespmdm;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
- * Actividad Interfaz: Button
+ * Actividad Menu simple
  * @author JC
  * @version 0.1
  *
  *  En esta rama se explicará los conceptos:
- *  1- Declaración e Inicialización de objetos TextView y Button
- *  2- Clases anónimas y uso de interfaces
- *  3- Conexión entre actividad y layout
- *  4- Ciclo de vida de las actividades
+ *  1- Crear un menu simple e intercatuar con los items que lo componen.
+ *
+ *  Consideraciones previas:
+ *   1.Se debe crear una carpeta nueva en res/menu
+ *   2.Dentro de esta, se crea un xml cuyo elemento raiz es <menu></menu>
+ *   3. Importante el atributo android:showAsAction cuyo fin es indicar cómo se debe mostrar los item
+ *      en el menu. Existen diferentes formas que podéis verlo en la documentación oficial
+ *      https://developer.android.com/guide/topics/resources/menu-resource?hl=es-419
  *
  */
 public class MainActivity extends AppCompatActivity {
 
+    private ConstraintLayout constraintLayout;
+    int selectedColor = Color.WHITE;
 
-    //Todo 3: Declaración de objetos
-    private Button btn;
-    private TextView txtVw;
-
-    //Todo 1: OnCreate como primera función para inicializar elementos de la actividad
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Todo 3: Metodo para conectar la vista con la actividad.
+
         setContentView(R.layout.activity_main);
 
-
-        //Todo 4: Inicialización de variables
-        btn = (Button) findViewById(R.id.button);
-        txtVw = (TextView) findViewById(R.id.textView);
-
-        //Todo 5. Los botones tienen un listener según el tipo de toque sobre la vista.
-        //Todo -> para ello se usa una clase anonima y se implementa su interfaz.
-        //Todo -> Desde Java 8 se sustituyen las clases anonimas por lambdas
-        btn.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-
-                txtVw.setText("Hola mundo");
-                return false;
-            }
-        });
+        constraintLayout = (ConstraintLayout) findViewById(R.id.root_const_lay);
 
     }
 
-    //Todo 6. Los siguientes métodos forman parte del ciclo de vida de cualquier actividad
-    //Todo    Se podría ver como un diagrama de estados.
+    //Todo 1. Se sobreescribe el metodo onCreateOptionsMenu para indicar que nuestra app tendra
+    // un menu personalizado.
     @Override
-    protected void onStart() {
-        super.onStart();
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //Todo 1.1 Se usa un inflater para construir la vista y se pasa el menu por defecto para
+        // que Android se encargue de colocarlo en la vista
+        getMenuInflater().inflate(R.menu.simple_menu,menu);
+
+        return true;
     }
 
+    //Todo 2. Se sobreescribe el metodo onOptionsItemSelected para manejar las selecciones a través
+    // de los diferentes item del menu.
     @Override
-    protected void onResume() {
-        super.onResume();
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+
+        switch (itemId){
+            case R.id.item_blue:
+                selectedColor = Color.BLUE;
+                myToast("Azul seleccionado");
+                break;
+            case R.id.item_green:
+                selectedColor = Color.GREEN;
+                myToast("Verde seleccionado");
+                break;
+            case R.id.item_red:
+                selectedColor = Color.RED;
+                myToast("Rojo seleccionado");
+                break;
+            case R.id.item_apply:
+                constraintLayout.setBackgroundColor(selectedColor);
+                break;
+        }
+
+        return true;
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-    }
-
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    public void myToast(String msg){
+        Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_SHORT).show();
     }
 }

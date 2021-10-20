@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/item_red"
+        android:icon="@drawable/color_red"
+        android:title="Rojo"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/item_green"
+        android:icon="@drawable/color_green"
+        android:title="Verde"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/item_blue"
+        android:icon="@drawable/color_blue"
+        android:title="Azul"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/item_apply"
+        android:title="Aplicar"
+        app:showAsAction="never" />
+</menu>
