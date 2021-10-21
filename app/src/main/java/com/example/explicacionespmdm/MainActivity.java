@@ -2,6 +2,7 @@ package com.example.explicacionespmdm;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.ActionMode;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ import android.widget.Toast;
  */
 public class MainActivity extends AppCompatActivity {
 
+    private androidx.appcompat.view.ActionMode mActionMode;
 
     private Button btn_floating;
     private Button btn_action;
@@ -38,43 +40,64 @@ public class MainActivity extends AppCompatActivity {
         btn_floating = (Button)   findViewById(R.id.btn_floating);
         btn_action = (Button)   findViewById(R.id.btn_action);
 
-        registerForContextMenu(btn_floating);
+        btn_action.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+
+                if(mActionMode != null){
+                    return false;
+                }
+
+                mActionMode = startSupportActionMode(mActionCallback);
+                return true;
+            }
+        });
 
 
 
     }
 
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-
-        getMenuInflater().inflate(R.menu.floating_menu,menu);
-        menu.setHeaderTitle("Menu flotante");
-    }
-
-
-    @Override
-    public boolean onContextItemSelected(@NonNull MenuItem item) {
-        int itemId = item.getItemId();
-        switch (itemId){
-            case R.id.fl_blue:
-                btn_floating.setBackgroundColor(Color.BLUE);
-                break;
-            case R.id.fl_green:
-                btn_floating.setBackgroundColor(Color.GREEN);
-                break;
-            case R.id.fl_red:
-                btn_floating.setBackgroundColor(Color.RED);
-                break;
+    private ActionMode.Callback mActionCallback = new ActionMode.Callback() {
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            mode.getMenuInflater().inflate(R.menu.action_menu,menu);
+            mode.setTitle("Action Menu");
+            return true;
         }
 
-        return true;
-    }
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+            return false;
+        }
 
-    @Override
-    public void onContextMenuClosed(@NonNull Menu menu) {
-        myToast("Menu cerrado");
-    }
+        @Override
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+            int itemId = item.getItemId();
+            switch(itemId){
+                case R.id.act_light_blue:
+                    btn_action.setBackgroundColor(Color.CYAN);
+                    mode.finish();
+
+                    break;
+                case R.id.act_purple:
+                    btn_action.setBackgroundColor(Color.MAGENTA);
+                    mode.finish();
+                    break;
+                case R.id.act_yellow:
+                    btn_action.setBackgroundColor(Color.YELLOW);
+                    mode.finish();
+                    break;
+            }
+
+            return true;
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode mode) {
+            mActionMode = null;
+        }
+    };
+
 
     /**
      * Método que encapsula la acción Toast, evita tener que repetir código en los parámetros que
