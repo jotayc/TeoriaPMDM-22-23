@@ -6,7 +6,7 @@
         android:id="@+id/item_red"
         android:icon="@drawable/color_red"
         android:title="Rojo"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="ifRoom|withText" />
     <item
         android:id="@+id/item_green"
         android:icon="@drawable/color_green"
@@ -20,5 +20,5 @@
     <item
         android:id="@+id/item_apply"
         android:title="Aplicar"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
 </menu>
