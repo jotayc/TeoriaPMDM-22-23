@@ -38,21 +38,26 @@ public class MainActivity extends AppCompatActivity {
         btn_floating = (Button)   findViewById(R.id.btn_floating);
         btn_action = (Button)   findViewById(R.id.btn_action);
 
+        //Todo 1. Debemos registrar la vista donde queremos que aparezca el menu contextual
         registerForContextMenu(btn_floating);
 
 
 
     }
 
+    //Todo 2. Sobrecargamos el metodo onCreateContextMenu para crear la vista del
+    // menu a partir de nuestro xml.
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
 
         getMenuInflater().inflate(R.menu.floating_menu,menu);
         menu.setHeaderTitle("Menu flotante");
+
     }
 
-
+    //Todo 3. Sobrecargamos el metodo onContextItemSelected para manejar los eventos
+    // que se produzcan al ser pulsados
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
