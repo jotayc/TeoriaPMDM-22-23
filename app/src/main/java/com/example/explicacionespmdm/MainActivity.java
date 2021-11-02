@@ -5,18 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 /**
- * PROYECTO BASE
+ * Actividad Biblioteca externa. En esta actividad se añadirá una biblioteca de terceros.
  * @author JC
  * @version 0.1
  *
- *  La idea del proyecto es concentrar en uno solo todas las tareas explicativas
- *  del módulo de 2º de DAM, Programación Multimedia y dispositivos móviles,
- *  haciendo uso de ramas a través de git.
- *
- *  Cada rama será un proyecto de un apartado explicativo independiente.
- *
- *  Esta rama SE DEBE DEJAR SIN IMPLEMENTAR para tenerla como base para comenzar ramas de futuras
- *  explicaciones.
+ * CONSIDERACIONES PREVIAS:
+ *  1. Las biblioteca externa usada se ha buscado a través de la web https://android-arsenal.com/
+ *  2. La biblioteca usada es 'Toasty' https://android-arsenal.com/details/1/7781
+ *  3. Se va a modificar los archivos .gradle, por lo que se deberá entender el funcionamiento de la
+ *  aplicación Gradle
  *
  */
 public class MainActivity extends AppCompatActivity {
