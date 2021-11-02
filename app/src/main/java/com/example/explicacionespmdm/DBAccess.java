@@ -24,7 +24,7 @@ public class DBAccess extends SQLiteOpenHelper {
     private static final String DB_TABLE_NAME = "db_ciudades";
 
     //Database version must be >= 1
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 3;
 
     //Columns
     private static final String CITY_COLUMN = "cityName";
@@ -151,7 +151,7 @@ public class DBAccess extends SQLiteOpenHelper {
         //String[] args = new String[]{"jerez"};
 
         //Un cursor es un tipo de dato que se mueve entre los registros devueltos por una consulta de una base de datos.
-        Cursor c = db.query(DB_TABLE_NAME,cols,null,null,null,null,"");
+        Cursor c = db.query(DB_TABLE_NAME,cols,null,null,null,null,null);
 
         if(c.moveToFirst()) {
             //Todo 5.4. Cogemos el valor referente a la posicion de la columna
