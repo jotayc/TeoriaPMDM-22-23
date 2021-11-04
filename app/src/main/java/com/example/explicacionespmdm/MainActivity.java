@@ -48,14 +48,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Todo 4.1 Configuración: Inicializa la clase de la biblioteca que gestionará la base de datos
+        //Todo 3.1 Configuración: Inicializa la clase de la biblioteca que gestionará la base de datos
         SugarContext.init(this);
 
         mTextoNota  = (EditText) findViewById(R.id.texto_nota);
         mGuardar    = (Button)   findViewById(R.id.boton_guardar);
         mBorrar    = (Button)   findViewById(R.id.boton_borrar);
 
-        //Todo 5.1 Tal como viene en la documentación. Se usa el método findById para hacer consultas a la BD
+        //Todo 4.1 Tal como viene en la documentación. Se usa el método findById para hacer consultas a la BD
         mNota = Nota.findById(Nota.class,1);
 
 
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        //Todo 4.2 Configuración: Es necesario "cerrar" la base de datos cuando la aplicación termine.
+        //Todo 3.2 Configuración: Es necesario "cerrar" la base de datos cuando la aplicación termine.
         SugarContext.terminate();
     }
 
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                 mNota = new Nota();
                 mNota.setMensaje(textoNota);
 
-                //Todo 5.2 Se usa el método save() para guardar el objeto en la BD
+                //Todo 4.2 Se usa el método save() para guardar el objeto en la BD
                 long save = mNota.save();
                 Log.d("DB", "Long: " + save);
 
@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 mNota.setMensaje(textoNota);
 
-                //Todo 5.3 Se usa el método update() para actualizar el objeto en la BD
+                //Todo 4.3 Se usa el método update() para actualizar el objeto en la BD
                 long update = mNota.update();
 
                 toasty.successToasty(this,"Nota actualizada id: " + update,Toasty.LENGTH_SHORT,Toasty.TOP);

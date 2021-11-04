@@ -3,14 +3,14 @@ package com.example.explicacionespmdm.db;
 import com.orm.SugarRecord;
 
 
-//Todo 3: Creamos la clase que se va a almacenar en la base de datos y se hereda de SugarRecord
+//Todo 2: Creamos la clase que se va a almacenar en la base de datos y se hereda de SugarRecord
 // IMPORTANTE: La biblioteca, te creará una columna id autoincrementable como clave primaria.
 public class Nota extends SugarRecord {
 
 
     private String mensaje;
 
-    //Todo 3.1: IMPORTANTE! Se debe crear el constructor por defecto, aunque se deje "en blanco"
+    //Todo 2.1: IMPORTANTE! Se debe crear el constructor por defecto, aunque se deje "en blanco"
     public Nota() {
     }
 
