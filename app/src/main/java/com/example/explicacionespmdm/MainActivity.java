@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Nota mNota;
 
-    final Toasty toasty = new Toasty(MainActivity.this);
+    final Toasty toasty =  new Toasty(MainActivity.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
