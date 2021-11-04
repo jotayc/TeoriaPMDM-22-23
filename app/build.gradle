@@ -35,4 +35,10 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    //Todo 1: Se importa la biblioteca
+    implementation 'com.github.satyan:sugar:1.5'
+
+    //Todo --- PARTE 2: TOASTY ----
+    implementation 'com.github.pprathameshmore:Toasty:v1.2'
 }
