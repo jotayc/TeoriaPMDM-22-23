@@ -27,7 +27,9 @@ import com.prathameshmore.toastylibrary.Toasty;
  * BIBLIOTECA TOASTY:
  *  1. Las biblioteca externa usada se ha buscado a través de la web https://android-arsenal.com/
  *  2. La biblioteca usada es 'Toasty' https://android-arsenal.com/details/1/7781
- *  3. Se va a modificar los archivos .gradle, por lo que se deberá entender el funcionamiento de la
+ *
+ * IMPORTANTE (AMBOS):
+ *  . Se va a modificar los archivos settings.gradle y build.gradle, por lo que se deberá entender el funcionamiento de la
  *  aplicación Gradle
  *
  */
