@@ -22,7 +22,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
 
-    //Todo 3: Declaración de objetos
+    //Todo 2: Declaración de objetos
     private Button btn;
     private TextView txtVw;
 
