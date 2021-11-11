@@ -8,6 +8,9 @@ import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+//Todo 0. Revisa las consideraciones previas del proyecto!!
+
+//Todo 1.
 public class HttpConnectPokemon {
 
     private static String URL_BASE = "https://pokeapi.co/api/v2";
