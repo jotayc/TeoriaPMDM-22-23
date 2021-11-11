@@ -10,21 +10,32 @@ import java.net.URL;
 
 //Todo 0. Revisa las consideraciones previas del proyecto!!
 
-//Todo 1.
+//Todo 1.Clase que gestiona la conexión con la base de datos externa, a través de una url base a la
+// que debemos concatenarle los "endpoint" o final de url para recibir la información que necesitemos.
+// Así mismo los parametros que se quieran enviar se forman en la URL a través del caracter '?'
 public class HttpConnectPokemon {
 
+    //Todo 1.1 Declaramos la url base, que no cambia.
     private static String URL_BASE = "https://pokeapi.co/api/v2";
 
+    //Todo 1.2 Definimos el método para peticiones GET el cual se usará para la consulta de
+    // información
     public static String getRequest(String strUrl )
     {
         HttpURLConnection http = null;
         String content = null;
         try {
+            //Todo 1.3 Se forma la url más el endpoint. Así como la cabecera, que permitira decidir
+            // la codificación de los datos que se están trasmitiendo.
             URL url = new URL( URL_BASE + strUrl );
             http = (HttpURLConnection)url.openConnection();
             http.setRequestProperty("Content-Type", "application/json");
             http.setRequestProperty("Accept", "application/json");
+
+            //Todo 1.4 Si el servidor devuelve un codigo 200 (HTTP_OK == 200)
+            // quiere decir que ha devuelto correctamente la información solicitada.
             if( http.getResponseCode() == HttpURLConnection.HTTP_OK ) {
+                //Todo 1.5 Se codifica el texto de la respuesta como String.
                 StringBuilder sb = new StringBuilder();
                 BufferedReader reader = new BufferedReader(
                         new InputStreamReader( http.getInputStream() ));
@@ -40,11 +51,16 @@ public class HttpConnectPokemon {
             e.printStackTrace();
         }
         finally {
+
+            //1.5 Se desconecta la conexión.
             if( http != null ) http.disconnect();
         }
         return content;
     }
 
+    //Todo 1.6 Esta función define el tipo de petición POST que se usa para la modificación de
+    // la información en base de datos externas. En este caso los parametros van encapsulados en
+    // la petición
     public static int postRequest( String strUrl, String data )
     {
         HttpURLConnection http = null;
