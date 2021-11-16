@@ -29,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView   imageView;
     private Button      loadBtn;
+
+    //Todo 2: Es recomendable usar cualquier tipo de spinner (o icono de carga) que muestre
+    // alguna acción mientras se está descargando la imagen.
     private CircularProgressDrawable progressDrawable;
 
     @Override
@@ -47,6 +50,13 @@ public class MainActivity extends AppCompatActivity {
         loadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Todo 1. El uso de la biblioteca glide es muy sencillo.
+                // Solo debéis tener en cuenta los diferentes métodos disponibles
+                // (y que podéis ver en la documentación oficial). En este caso se han utilizado:
+                // a. load -> método que recibe un string con la url de la imagen.
+                // b. placeholder -> método que muestra una imagen alternativa mientras no exista imagen
+                // c. error -> método que muestra una imagen alternativa cuando esta ha fallado.
+                // d. into -> método que recibe la vista donde se va a cargar la imagen.
                 Glide.with(MainActivity.this)
                         .load("https://as1.ftcdn.net/v2/jpg/01/20/68/68/1000_F_120686889_nDaqiMH8I5AmT5B0hpuJ14ZasdrrgRAK.jpg")
                         .placeholder(progressDrawable)
