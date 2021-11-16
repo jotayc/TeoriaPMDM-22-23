@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, pokeList);
         listview.setAdapter(adapter);
 
-        new taskConnections().execute("GET", "/pokemon");
+        new taskConnections().execute("GET", "/pokemon?offset=100&limit=100");
 
     }
 
