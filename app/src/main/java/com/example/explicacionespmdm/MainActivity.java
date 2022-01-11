@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 /**
  * MEDIA PLAYER
- * @author JC
+ * @author José Carlos Alfaro
  * @version 0.1
  *
  *  Ejercicio que implementa un reproductor de música básico. El proyecto está incompleto, ya que
