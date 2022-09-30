@@ -36,12 +36,16 @@ public class MainActivity extends AppCompatActivity {
         //Todo 2. Inicialización de los elementos de la interfaz.
         spinner = (Spinner) findViewById(R.id.spinner);
 
+        //Todo 3. Creamos un adaptador que unirá la lista de elementos, con el diseño que se usará para mostrar cada fila (Android ya trae un disñeño por defecto)
         ArrayAdapter adaptador = ArrayAdapter.createFromResource(this,R.array.provincias, android.R.layout.simple_spinner_item);
 
+        //Todo 4. Elegimos el diseño por defecto, de como se quiere mostrar el desplegable.
         adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
+        //Todo 5. Asigamos el adaptador al spinner
         spinner.setAdapter(adaptador);
 
+        //Todo 6. Creamos el listener correpondiente para que capture el evento de selección
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
