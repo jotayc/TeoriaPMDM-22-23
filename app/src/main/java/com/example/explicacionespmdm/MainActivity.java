@@ -24,7 +24,7 @@ import android.widget.Toast;
  */
 public class MainActivity extends AppCompatActivity {
 
-    //Declaración de los elementos de la interfaz
+    //Todo 1. Declaración de los elementos de la interfaz
     Spinner spinner;
 
 
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Inicialización de los elementos de la interfaz.
+        //Todo 2. Inicialización de los elementos de la interfaz.
         spinner = (Spinner) findViewById(R.id.spinner);
 
         ArrayAdapter adaptador = ArrayAdapter.createFromResource(this,R.array.provincias, android.R.layout.simple_spinner_item);
@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void myToast(String msg){
+        //Todo 3. Creamos una notificación simple
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
     }
 }
