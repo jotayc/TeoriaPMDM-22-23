@@ -33,20 +33,20 @@ public class SecondActivity extends AppCompatActivity {
                 if(msg != null && !msg.equals("")){
                     //Todo 2. En este caso creamos un intent para que devuelva el mensaje.
                     //Todo -> Este se entregará cuando la instancia de la actividad que lo devuelve finalice.
-
+                    Intent returnIntent = new Intent();
 
                     //Todo 2.1 Se añade el mensaje al intent.
-
+                    returnIntent.putExtra("result",msg);
 
                     //Todo 2.2 Se llama al metodo que añade el intent al resultado.
                     //Todo -> En este caso admite un parámetro inicial "ResultCode" que podrá ser
                     //Todo -> dos valores estáticos dentro de la clase Activity:
                     // Todo -> RESULT_OK en caso de que el resultado devuelto sea correcto
                     //Todo ->  RESULT_CANCELED  en caso de que el resultado devuelto sea incorrecto.
-
+                    setResult(Activity.RESULT_OK,returnIntent);
 
                     //Todo 2.3 Finalizamos la actividad para devolver el resultado.
-
+                    finish();
                 }
 
 
