@@ -43,13 +43,13 @@ public class MainActivity extends AppCompatActivity {
         btn_action.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-
-                if(mActionMode != null){
-                    return false;
+                boolean res = false;
+                if(mActionMode == null){
+                    mActionMode = startSupportActionMode(mActionCallback);
+                    res = true;
                 }
 
-                mActionMode = startSupportActionMode(mActionCallback);
-                return true;
+                return res;
             }
         });
 
