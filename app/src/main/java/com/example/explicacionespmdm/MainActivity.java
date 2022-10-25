@@ -20,7 +20,7 @@ import android.widget.Toast;
  *
  * Explica el uso de :
  *
- * 1- Menu contextual flotante
+ * 1- Menu de acción
  *
  */
 public class MainActivity extends AppCompatActivity {
