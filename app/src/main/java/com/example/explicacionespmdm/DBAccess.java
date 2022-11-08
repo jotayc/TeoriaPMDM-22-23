@@ -56,12 +56,24 @@ public class DBAccess extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-
+        //Version 1
         String CREATE_USER_TABLE = "CREATE TABLE " +DB_TABLE_NAME+ "("
                 +CITY_COLUMN+ " TEXT)";
 
+        //Version 2
+        /*String CREATE_USER_TABLE = "CREATE TABLE " +DB_TABLE_NAME+ "("
+                +CITY_COLUMN+ " TEXT,
+                " + POBLATION_COLUMN + " INTEGER")";*/
+
+        //Version 3
+        /*String CREATE_USER_TABLE = "CREATE TABLE " +DB_TABLE_NAME+ "("
+                +CITY_COLUMN+ " TEXT,
+                " + POBLATION_COLUMN + " INTEGER,"
+                + SURFACE_COLUMN + " REAL")";*/
 
         //Todo 2.1. Lanzamos la consulta con execSQL
+
+
         sqLiteDatabase.execSQL(CREATE_USER_TABLE);
 
 
@@ -87,13 +99,13 @@ public class DBAccess extends SQLiteOpenHelper {
         switch(oldVersion){
             case 1:
                 sqLiteDatabase.execSQL("ALTER TABLE " + DB_TABLE_NAME  +" ADD COLUMN " + POBLATION_COLUMN +" INTEGER");
-                Log.i("DB", "BBDD Actualizada a la versión 1");
+                Log.i("DB", "BBDD Actualizada a la versión 2");
             case 2:
                 sqLiteDatabase.execSQL("ALTER TABLE " + DB_TABLE_NAME  +" ADD COLUMN " + SURFACE_COLUMN +" FLOAT");
-                Log.i("DB", "BBDD Actualizada a la versión 2");
-            case 3:
-                sqLiteDatabase.execSQL("ALTER TABLE "+ DB_TABLE_NAME   +" ADD COLUMN gentilicio TEXT");
                 Log.i("DB", "BBDD Actualizada a la versión 3");
+            /*case 3:
+                sqLiteDatabase.execSQL("ALTER TABLE "+ DB_TABLE_NAME   +" ADD COLUMN gentilicio TEXT");
+                Log.i("DB", "BBDD Actualizada a la versión 3");*/
 
         }
 
@@ -147,8 +159,7 @@ public class DBAccess extends SQLiteOpenHelper {
         // todo-> permite recorrer las tuplas del resultado.
         String[] cols = new String[]{ CITY_COLUMN };
 
-        //String selection = "city=?"; // -> el caracter interrogación será sustituido por los valores del array 'args' en orden de aparición
-        //String[] args = new String[]{"jerez"};
+
 
         //Un cursor es un tipo de dato que se mueve entre los registros devueltos por una consulta de una base de datos.
         Cursor c = db.query(DB_TABLE_NAME,cols,null,null,null,null,null);
@@ -178,6 +189,9 @@ public class DBAccess extends SQLiteOpenHelper {
         ArrayList<String> resultCities = new ArrayList<>();
 
         String[] cols = new String[]{ CITY_COLUMN };
+
+        //String selection = "city=? AND poblation>?"; // -> el caracter interrogación será sustituido por los valores del array 'args' en orden de aparición
+        //String[] args = new String[]{"jerez", "100"};
 
         //Un cursor es un tipo de dato que se mueve entre los registros devueltos por una consulta de una base de datos.
         Cursor c = db.query(DB_TABLE_NAME,cols,null,null,null,null,null);

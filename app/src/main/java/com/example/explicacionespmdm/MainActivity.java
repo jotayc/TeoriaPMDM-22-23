@@ -17,8 +17,8 @@ import android.widget.Toast;
  *
  *  CONSIDERACIONES PREVIAS:
  *   1. El diseño de las tablas no es correcto, puesto que faltaría una clave primaria en la tabla 'ciudades'
- *   1. El funcionamiento de este ejemplo no está completo (no se muestra toda la información de las tablas de la BBDD)
- *   2. Por simplificación en la explicación, este ejemplo, no sigue el patrón MVC (Habría que crearse la clase 'City' o 'Ciudad'
+ *   2. El funcionamiento de este ejemplo no está completo (no se muestra toda la información de las tablas de la BBDD)
+ *   3. Por simplificación en la explicación, este ejemplo, no sigue el patrón MVC (Habría que crearse la clase 'City' o 'Ciudad')
  *
  */
 public class MainActivity extends AppCompatActivity {
