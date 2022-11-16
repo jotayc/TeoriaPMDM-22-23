@@ -16,18 +16,18 @@ import java.net.URL;
 public class HttpConnectPokemon {
 
     //Todo 1.1 Declaramos la url base, que no cambia.
-    private static String URL_BASE = "https://pokeapi.co/api/v2";
+    private static final String URL_BASE = "https://pokeapi.co/api/v2";
 
     //Todo 1.2 Definimos el método para peticiones GET el cual se usará para la consulta de
     // información
-    public static String getRequest(String strUrl )
+    public static String getRequest(String endpoint )
     {
         HttpURLConnection http = null;
         String content = null;
         try {
             //Todo 1.3 Se forma la url más el endpoint. Así como la cabecera, que permitira decidir
             // la codificación de los datos que se están trasmitiendo.
-            URL url = new URL( URL_BASE + strUrl );
+            URL url = new URL( URL_BASE + endpoint );
             http = (HttpURLConnection)url.openConnection();
             http.setRequestProperty("Content-Type", "application/json");
             http.setRequestProperty("Accept", "application/json");
@@ -60,8 +60,8 @@ public class HttpConnectPokemon {
 
     //Todo 1.6 Esta función define el tipo de petición POST que se usa para la modificación de
     // la información en base de datos externas. En este caso los parametros van encapsulados en
-    // la petición
-    public static int postRequest( String strUrl, String data )
+    // la petición. En este método los parametros se están pasando a través de 'params'
+    public static int postRequest( String strUrl, String params )
     {
         HttpURLConnection http = null;
         int responseCode = -1;
@@ -85,7 +85,7 @@ public class HttpConnectPokemon {
             */
 
             PrintWriter writer = new PrintWriter(http.getOutputStream());
-            writer.print(data); //Aquí se le pasaría la variable creada query
+            writer.print(params); //Aquí se le pasaría la variable creada query
             writer.flush();
             responseCode = http.getResponseCode();
         } catch (Exception e) {

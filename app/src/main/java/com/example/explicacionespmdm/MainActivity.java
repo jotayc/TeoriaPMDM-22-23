@@ -50,12 +50,12 @@ public class MainActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, pokeList);
         listview.setAdapter(adapter);
 
-        new taskConnections().execute("GET", "/pokemon?offset=100&limit=100");
+        new taskConnections().execute("GET", "/pokemon?limit=100");
 
     }
 
     //Todo 2. (ver clase HttpConnectPokemon.java ) Al ser una tarea que implica una espera,
-    // como es la respuesta del servidor, por ello se tiene que llevar a cabo a través de un hilo
+    // como es la respuesta del servidor, se tiene que llevar a cabo a través de un hilo
     // secundario.
     private class taskConnections extends AsyncTask<String,Void,String>{
 
