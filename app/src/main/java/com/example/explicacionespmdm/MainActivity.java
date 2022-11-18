@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         imageView   = (ImageView) findViewById(R.id.imgView);
         loadBtn     =   (Button) findViewById(R.id.btn_load);
+        //Todo 2.1 Configuración del CircularProgressDrawable
         progressDrawable = new CircularProgressDrawable(this);
         progressDrawable.setStrokeWidth(10f);
         progressDrawable.setStyle(CircularProgressDrawable.LARGE);
@@ -55,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
                 // (y que podéis ver en la documentación oficial). En este caso se han utilizado:
                 // a. load -> método que recibe un string con la url de la imagen.
                 // b. placeholder -> método que muestra una imagen alternativa mientras no exista imagen
-                // c. error -> método que muestra una imagen alternativa cuando esta ha fallado.
-                // d. into -> método que recibe la vista donde se va a cargar la imagen.
+                // c. error -> método que muestra una imagen alternativa cuando la carga de esta ha fallado.
+                // d. into -> método que recibe la vista donde se va a insertar la imagen descargada.
                 Glide.with(MainActivity.this)
                         .load("https://as1.ftcdn.net/v2/jpg/01/20/68/68/1000_F_120686889_nDaqiMH8I5AmT5B0hpuJ14ZasdrrgRAK.jpg")
                         .placeholder(progressDrawable)
