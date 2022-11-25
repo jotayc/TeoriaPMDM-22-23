@@ -68,8 +68,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // En este ejercicio se ha usado la forma 1 (Se deja comentada la forma 2)
         if(mediaPlayer == null){
             mediaPlayer = new MediaPlayer();
+            //mediaPlayer = MediaPlayer.create(this, R.raw.videoplayback);
         }
-        //mediaPlayer = MediaPlayer.create(this, R.raw.videoplayback);
+
         try {
             mediaPlayer.setDataSource(this, Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.videoplayback));
             mediaPlayer.setDisplay(surfaceView.getHolder());
@@ -115,7 +116,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_stop:
                 if(mediaPlayer != null){
                     //Todo 6. Paramos la música.
-                    mediaPlayer.stop();
                     stopVideo();
                     btnStop.setEnabled(false);
                     btnPlay.setEnabled(true);
@@ -127,6 +127,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void stopVideo() {
+        mediaPlayer.stop();
         // Todo 7. Se libera la memoria y se elimina la instancia.
         if(mediaPlayer != null) {
             mediaPlayer.release();
